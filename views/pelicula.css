@@ -11,8 +11,11 @@ body {
 
 h1 {
     font-size: 36px;
-    color: #333333;
+    color: #ffffff;
     margin-bottom: 20px;
+}
+h3 {
+    color: #ffffff;
 }
 
 ul {
@@ -22,6 +25,7 @@ ul {
 
 li {
     margin: 10px 0;
+    color: #ffffff;
 }
 
 a {
