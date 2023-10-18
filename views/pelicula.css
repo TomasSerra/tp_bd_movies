@@ -17,11 +17,11 @@ header{
     width: 100%;
     padding: 20px;
     justify-content: center;
-    position: relative;
+    position: fixed;
 }
 
 h1 {
-    font-size: 4vh;
+    font-size: 35px;
     color: white;
     font-weight: bold;
     position: absolute;
@@ -30,7 +30,8 @@ h1 {
 }
 
 h2{
-    font-size: 5vh;
+    margin-top: 170px;
+    font-size: 50px;
     color: white;
     margin-bottom: 14px;
 }
@@ -45,7 +46,7 @@ h4{
 
 hr{
     width: 50%;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 form {
@@ -91,6 +92,8 @@ section{
     align-items: center;
     background-color: #1414143f;
     border-radius: 20px;
+    height: fit-content;
+    text-align: left;
 }
 
 h3 {

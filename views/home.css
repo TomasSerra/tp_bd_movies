@@ -14,11 +14,11 @@ header{
     width: 100%;
     padding: 20px;
     justify-content: center;
-    position: relative;
+    position: fixed;
 }
 
 h1 {
-    font-size: 4vh;
+    font-size: 35px;
     color: white;
     font-weight: bold;
     position: absolute;
