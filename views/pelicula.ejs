@@ -5,42 +5,62 @@
     <link rel="stylesheet" href="/pelicula.css">
 </head>
 <body>
-<h1><%= movie.title %></h1>
-<h3>Fecha: <%= movie.release_date %></h3>
-<h3>Dirigida por: </h3>
-<ul>
-    <% movie.directors.forEach((director) => { %>
-        <li>
-            <a href="/director/<%= director.crew_member_id %>"><%= director.crew_member_name %></a>
-        </li>
-    <% }); %>
-</ul>
-<h3>Escrita por: </h3>
-<ul>
-    <% movie.writers.forEach((writer) => { %>
-        <li>
-            <%= writer.crew_member_name %>
-        </li>
-    <% }); %>
-</ul>
-<h3>Argumento:</h3>
-<div id="overview"><p><%= movie.overview %></p></div>
-<h3>Elenco:</h3>
-<ul>
-    <% movie.cast.sort((a, b) => a.cast_order - b.cast_order).forEach((actor) => { %>
-        <li><a href="/actor/<%= actor.actor_id %>"><%= actor.actor_name %></a> - <%= actor.character_name %></li>
-    <% }); %>
-</ul>
-<h3>Crew:</h3>
-<ul>
-    <% movie.crew.forEach((crewMember) => { %>
-        <li>
-            <%= crewMember.crew_member_name %> - <%= crewMember.department_name %>
-            (<%= crewMember.job %>)
-        </li>
-    <% }); %>
-</ul>
-<p></p>
-<div id="inicio"><a href="/">Inicio</a></div>
+    <header>
+        <h1>HBOmax</h1>
+        <form action="/buscar" method="GET">
+            <input type="text" name="q" placeholder="Buscar películas..." />
+            <button type="submit">Buscar</button>
+        </form>
+    </header>
+<h2><%= movie.title %></h2>
+<hr/>
+<div class="section1">
+    <h3>Fecha: <%= movie.release_date %></h3>
+    <div style="display: flex; align-items: center;">
+        <h3>Dirigida por: </h3>
+        <ul style="background: none;">
+            <% movie.directors.forEach((director) => { %>
+                <li>
+                    <a class="director" href="/director/<%= director.crew_member_id %>"><%= director.crew_member_name %></a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    <div style="display: flex; align-items: center;">
+       <h3>Escrita por: </h3>
+        <ul style="background: none;">
+            <% movie.writers.forEach((writer) => { %>
+                <li class="director">
+                    <%= writer.crew_member_name %>
+                </li>
+            <% }); %>
+        </ul> 
+    </div>
+    
+</div>
+<section>
+    <h4>Argumento:</h4>
+    <div id="overview"><p><%= movie.overview %></p></div>
+</section>
+<section>
+    <h4>Elenco:</h4>
+    <ul>
+        <% movie.cast.sort((a, b) => a.cast_order - b.cast_order).forEach((actor) => { %>
+            <li><a href="/actor/<%= actor.actor_id %>"><%= actor.actor_name %></a> - <%= actor.character_name %></li>
+        <% }); %>
+    </ul>
+</section>
+<section>
+    <h4>Crew:</h4>
+    <ul>
+        <% movie.crew.forEach((crewMember) => { %>
+            <li>
+                <%= crewMember.crew_member_name %> - <%= crewMember.department_name %>
+                (<%= crewMember.job %>)
+            </li>
+        <% }); %>
+    </ul>
+</section>
+
 </body>
 </html>
