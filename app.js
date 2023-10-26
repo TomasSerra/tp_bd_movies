@@ -23,16 +23,42 @@ app.get('/', (req, res) => {
 app.get('/buscar', (req, res) => {
     const searchTerm = req.query.q;
 
-    // Realizar la búsqueda en la base de datos
+    // Realizar la búsqueda en la base de datos para películas
     db.all(
         'SELECT * FROM movie WHERE title LIKE ?',
         [`%${searchTerm}%`],
-        (err, rows) => {
+        (err, movieRows) => {
             if (err) {
-                console.error(err);
-                res.status(500).send('Error en la búsqueda.');
+                res.status(500).send('Error en la búsqueda de películas.');
             } else {
-                res.render('resultado', { movies: rows });
+                // Realizar la búsqueda en la base de datos para personas
+                db.all(
+                    `SELECT DISTINCT p.person_name, p.person_id FROM person AS p
+                    JOIN movie_crew AS mc ON p.person_id = mc.person_id
+                    WHERE person_name LIKE ? AND mc.job='Director'`,
+                    [`%${searchTerm}%`],
+                    (err, directorRows) => {
+                        if (err) {
+                            res.status(500).send('Error en la búsqueda de personas.');
+                        } else {
+                            // Renderizar la vista con los resultados de películas y personas
+                            db.all(
+                                `SELECT DISTINCT p.person_name, p.person_id FROM person AS p
+                                JOIN movie_cast AS mc ON p.person_id = mc.person_id
+                                WHERE p.person_name LIKE ?`,
+                                [`%${searchTerm}%`],
+                                (err, actorRows) => {
+                                    if (err) {
+                                        res.status(500).send('Error en la búsqueda de actores.');
+                                    } else {
+                                        // Renderizar la vista con los resultados de películas y personas
+                                        res.render('resultado', { movies: movieRows, directors: directorRows, actors: actorRows });
+                                    }
+                                }
+                            );
+                        }
+                    }
+                );
             }
         }
     );

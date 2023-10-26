@@ -36,6 +36,7 @@ h2{
     border-radius: 10px;
     color: black;
     font-size: 30px;
+    text-align: center;
 }
 
 form {
@@ -127,4 +128,18 @@ a:hover {
 p{
     color: rgba(255, 255, 255, 0.712);
     margin-top: 50px;
+}
+
+.container{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.col{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
