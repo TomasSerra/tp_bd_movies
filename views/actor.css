@@ -2,11 +2,12 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(345deg, #490cb0 0%, #9b34ef 100%);
     display: flex;
+    align-items: center;
     flex-direction: column;
-    justify-content: center;
+    height: 100vh;
     margin: 0;
-    background-attachment: fixed;
     overflow-x: hidden;
+    background-attachment: fixed;
 }
 
 header{
@@ -55,23 +56,32 @@ button[type="submit"]:hover {
     background-color: #7d2dbe;
 }
 
+h2{
+    margin-top: 130px;
+    color: white;
+    font-size: 40px;
+}
+
 ul {
     list-style: none;
     padding: 0;
 }
 
 li {
-    margin: 10px 0;
+    margin: 25px 0;
 }
 
 a {
     text-decoration: none;
-    color: #0078d4;
+    color: #ffffff;
     font-weight: bold;
+    background-color: rgb(46, 46, 46);
+    padding: 8px;
+    border-radius: 5px;
 }
 
 a:hover {
-    color: #0056b3;
+    padding: 12px;
 }
 
 .collapsible {
