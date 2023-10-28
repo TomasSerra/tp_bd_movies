@@ -72,6 +72,8 @@ app.get('/pelicula/:id', (req, res) => {
     const query = `
     SELECT
       movie.*,
+      genre.*,
+      movie_genres.*,
       actor.person_name as actor_name,
       actor.person_id as actor_id,
       crew_member.person_name as crew_member_name,
@@ -86,6 +88,8 @@ app.get('/pelicula/:id', (req, res) => {
     LEFT JOIN movie_crew ON movie.movie_id = movie_crew.movie_id
     LEFT JOIN department ON movie_crew.department_id = department.department_id
     LEFT JOIN person as crew_member ON crew_member.person_id = movie_crew.person_id
+    LEFT JOIN movie_genres ON movie_genres.movie_id = movie.movie_id
+    LEFT JOIN genre ON genre.genre_id = movie_genres.genre_id
     WHERE movie.movie_id = ?
   `;
 
@@ -103,6 +107,8 @@ app.get('/pelicula/:id', (req, res) => {
                 title: rows[0].title,
                 release_date: rows[0].release_date,
                 overview: rows[0].overview,
+                vote_average: rows[0].vote_average,
+                genre: rows[0].genre_name,
                 directors: [],
                 writers: [],
                 cast: [],

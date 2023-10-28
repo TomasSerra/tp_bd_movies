@@ -44,6 +44,12 @@ h4{
     border-radius: 5px;
 }
 
+h5{
+    color: white;
+    font-size: 25px;
+    margin: 0;
+}
+
 hr{
     width: 50%;
     margin-bottom: 30px;
@@ -115,6 +121,29 @@ li {
 
 .director{
     margin-left: 10px;
+}
+
+.genre{
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    align-items: center;
+    background-color: #1414143f;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+
+.vote{
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    align-items: center;
+    background-color: #ff9d01a5;
+    border-radius: 20px;
+    text-align: left;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    padding: 5px;
 }
 
 a {
