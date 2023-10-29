@@ -109,6 +109,7 @@ app.get('/pelicula/:id', (req, res) => {
                 overview: rows[0].overview,
                 vote_average: rows[0].vote_average,
                 genre: rows[0].genre_name,
+                homepage: rows[0].homepage,
                 directors: [],
                 writers: [],
                 cast: [],
