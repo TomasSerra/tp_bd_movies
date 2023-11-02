@@ -64,6 +64,26 @@ app.get('/buscar', (req, res) => {
     );
 });
 
+app.get('/tags', (req, res) => {
+    const searchTerm = req.query.q;
+
+    db.all(
+        `SELECT *
+        FROM keyword
+        JOIN movie_keywords ON movie_keywords.keyword_id = keyword.keyword_id
+        JOIN movie ON movie.movie_id = movie_keywords.movie_id
+        WHERE keyword.keyword_name LIKE ?`,
+        [`%${searchTerm}%`],
+        (err, movieRows) => {
+            if (err) {
+                console.log(movieRows)
+                res.status(500).send('Error en la búsqueda de películas.');
+            } else {
+                res.render('tags', { movies: movieRows });
+            }
+        });
+});
+
 // Ruta para la página de datos de una película particular
 app.get('/pelicula/:id', (req, res) => {
     const movieId = req.params.id;

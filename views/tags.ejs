@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Películas con <%= actorName %></title>
-    <link rel="stylesheet" href="/actor.css">
+    <title>Resultado de la Búsqueda</title>
+    <link rel="stylesheet" href="/tags.css">
 </head>
 <body>
     <header>
@@ -16,11 +16,19 @@
             <button class="tag-button" type="submit">Buscar</button>
         </form>
     </header>
-<h2>Películas con <%= actorName %></h2>
-<ul>
-    <% movies.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).forEach((movie) => { %>
-        <li><a href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
-    <% }); %>
-</ul>
+<div class="container">
+    <div class="col">
+        <h2>Películas</h2>
+        <% if (movies.length === 0) { %>
+            <p>No hay resultados.</p>
+        <% } else { %>
+            <ul>
+                <% movies.forEach((movie) => { %>
+                    <li><a href="/pelicula/<%= movie.movie_id %>"><%= movie.title %></a></li>
+                <% }); %>
+            </ul>
+        <% } %>
+    </div>
+</div>
 </body>
 </html>

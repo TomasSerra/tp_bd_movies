@@ -8,13 +8,17 @@
     <header>
         <h1>HBOmax</h1>
         <form action="/buscar" method="GET">
-            <input type="text" name="q" placeholder="Buscar películas..." />
-            <button type="submit">Buscar</button>
+            <input class="search-input" type="text" name="q" placeholder="Películas, actores o directores..." />
+            <button class="search-button" type="submit">Buscar</button>
+        </form>
+        <form action="/tags" method="GET" class="tag-form">
+            <input class="tag-input" type="text" name="q" placeholder="Buscar por tags..." />
+            <button class="tag-button" type="submit">Buscar</button>
         </form>
     </header>
 <div class="container">
     <div class="col">
-        <h2>Peliculas</h2>
+        <h2>Películas</h2>
         <% if (movies.length === 0) { %>
             <p>No hay resultados.</p>
         <% } else { %>
