@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Películas con <%= actorName %></title>
+    <title>Películas de <%= actorName %></title>
     <link rel="stylesheet" href="/actor.css">
 </head>
 <body>
@@ -16,11 +16,24 @@
             <button class="tag-button" type="submit">Buscar</button>
         </form>
     </header>
-<h2>Películas con <%= actorName %></h2>
-<ul>
-    <% movies.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).forEach((movie) => { %>
-        <li><a href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
-    <% }); %>
-</ul>
+    <h2> <%= actorName %></h2>
+    <div class="movies-container">
+        <div class="movies-column">
+            <h4>Películas en las que actuó:</h4>
+            <ul>
+                <% actedInMovies.forEach((movie) => { %>
+                    <li><a href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="movies-column">
+            <h4>Películas que dirigió:</h4>
+            <ul>
+                <% directedMovies.forEach((movie) => { %>
+                    <li><a href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

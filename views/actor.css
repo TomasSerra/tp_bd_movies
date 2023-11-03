@@ -85,11 +85,20 @@ form {
 }
 
 h2{
-    margin-top: 130px;
+    margin-top: 100px;
     color: white;
-    font-size: 40px;
+    font-size: 60px;
 }
 
+h4{
+    margin-top: 120px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
 ul {
     list-style: none;
     padding: 0;
@@ -145,4 +154,15 @@ a:hover {
 #inicio {
     margin: 0 auto; /* Centrar horizontalmente el elemento */
     padding: 50px; /* Agregar un poco de espacio interior para que se vea mejor */
+}
+
+.movies-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+.movies-column {
+    flex: 1;
+    margin: 0 10px;
 }
