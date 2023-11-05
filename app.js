@@ -332,12 +332,13 @@ app.get('/director/:id', (req, res) => {
                         res.status(500).send('Error al cargar las películas del actor.');
                     } else {
                         directedMovies = directedResults;
+                        directorName = directedResults[0].directorName;
     
                         // Obtener el nombre del actor
                         const actorName = actedInMovies.length > 0 ? actedInMovies[0].actorName : '';
     
                         // Poner las dos listas en la view
-                        res.render('actor', { actorName, actedInMovies, directedMovies });
+                        res.render('director', { directorName, actedInMovies, directedMovies });
                     }
                 });
             }

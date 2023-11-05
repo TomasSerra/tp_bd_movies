@@ -6,7 +6,7 @@
 </head>
 <body>
     <header>
-        <h1>HBOmax</h1>
+        <h1><a style="color: white; text-decoration: none;" href="/">HBOmax</a></h1>
         <form action="/buscar" method="GET">
             <input class="search-input" type="text" name="q" placeholder="Películas, actores o directores..." />
             <button class="search-button" type="submit">Buscar</button>
@@ -22,7 +22,7 @@
             <h4>Películas en las que actuó:</h4>
             <ul>
                 <% actedInMovies.forEach((movie) => { %>
-                    <li><a href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
+                    <li><a class="movie" href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
                 <% }); %>
             </ul>
         </div>
@@ -30,7 +30,7 @@
             <h4>Películas que dirigió:</h4>
             <ul>
                 <% directedMovies.forEach((movie) => { %>
-                    <li><a href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
+                    <li><a class="movie" href="/pelicula/<%= movie.movie_id %>"><%= movie.title %> (<%= new Date(movie.release_date).getFullYear() %>)</a></li>
                 <% }); %>
             </ul>
         </div>

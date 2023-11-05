@@ -85,13 +85,12 @@ form {
 }
 
 h2{
-    margin-top: 100px;
+    margin-top: 130px;
     color: white;
     font-size: 60px;
 }
 
 h4{
-    margin-top: 120px;
     background-color: white;
     padding: 10px;
     border-radius: 10px;
@@ -99,6 +98,7 @@ h4{
     font-size: 30px;
     text-align: center;
 }
+
 ul {
     list-style: none;
     padding: 0;
@@ -108,7 +108,7 @@ li {
     margin: 25px 0;
 }
 
-a {
+.movie {
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
@@ -117,7 +117,7 @@ a {
     border-radius: 5px;
 }
 
-a:hover {
+.movie:hover {
     padding: 12px;
 }
 
@@ -159,10 +159,9 @@ a:hover {
 .movies-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 70px;
+    width: 90%;
 }
 
 .movies-column {
-    flex: 1;
-    margin: 0 10px;
+    width: 40%;
 }

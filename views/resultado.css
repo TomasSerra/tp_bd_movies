@@ -105,7 +105,7 @@ li {
     margin: 25px 0;
 }
 
-a {
+.movie {
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
@@ -114,7 +114,7 @@ a {
     border-radius: 5px;
 }
 
-a:hover {
+.movie:hover {
     padding: 12px;
 }
 
